@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.API_URL || "http://127.0.0.1:8000/api";
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api";
 
 const getHeaders = () => ({
   "Accept": "application/json",
@@ -16,6 +16,11 @@ async function handleResponse(response: Response) {
 
     throw new Error(error.message || `Request failed with status ${response.status}`);
   }
+
+  if (response.status === 204 || response.headers.get('content-length') === '0') {
+    return null;
+  }
+
   return response.json();
 }
 
