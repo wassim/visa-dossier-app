@@ -1,0 +1,15 @@
+{
+  "name": "visa-dossier-app",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "api",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev --workspace=api",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build:api": "npm run build --workspace=api",
+    "build:frontend": "npm run build --workspace=frontend"
+  }
+}
