@@ -29,8 +29,10 @@ class DocumentFactory extends Factory
             'png' => 'image/png',
         ];
 
+        $dossier = Dossier::firstOrCreate();
+
         return [
-            'dossier_id' => Dossier::factory(),
+            'dossier_id' => $dossier->id,
             'type' => fake()->randomElement(DocumentType::cases()),
             'file_name' => "{$uuid}.{$extension}",
             'original_name' => fake()->word().'_'.fake()->word().'.'.$extension,
